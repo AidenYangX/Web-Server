@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录界面</title>
+</head>
+<body>
+	<!-- 
+		表单(模拟数据库数据)：
+			userName=admin
+			passWod=root
+	 -->
+	 <form action="/web_2/LoginServlet" method="post">
+	 	<label>USERNAME</label>
+	 	<input type="text" name="userName" id="userName" placeholder="请输入用户名" required="required">
+	 	<!-- js 校验提示文本 -->
+	 	<span id="userNameMsg" class="userNameMsg"></span>
+	 	<br>
+	 	<br>
+	 	<label>PASSWORD</label>
+	 	<input type="password" name="passWord" id="passWord" placeholder="请输入密码" required="required">
+	 	<span id="passWordMsg" class="passWordMsg"></span>
+	 	<br>
+	 	<br>
+	 	<input type="submit" value="LOGIN" >
+	 </form>
+</body>
+</html>
