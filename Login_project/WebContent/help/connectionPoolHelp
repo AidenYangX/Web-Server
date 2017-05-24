@@ -1,0 +1,45 @@
+1.Êý¾Ý¿âÁ¬½Ó³Ø
+	1.µ¼Èëjar ÎÄ¼þ
+		commons-logging.jar
+		proxool-0.9.1.jar
+		proxool-cglib.jar
+		
+	2.ÅäÖÃ XML ÎÄ¼þ£¨proxool.xml£©
+		<?xml version="1.0" encoding="ISO-8859-1"?>
+		<!-- the proxool configuration can be embedded within your own application's.
+		Anything outside the "proxool" tag is ignored. -->
+		<something-else-entirely>
+		  <proxool>
+		  	±ðÃû
+		    <alias>xml-test</alias>
+		        Á´½ÓURL
+		    <driver-url>jdbc:hsqldb:.</driver-url>
+		        Á´½ÓÇý¶¯
+		    <driver-class>org.hsqldb.jdbcDriver</driver-class>
+		    <driver-properties>
+		   	   mysql ¹ÜÀíÓÃ»§Ãû
+		      <property name="user" value="sa"/>
+		       mysql ¹ÜÀíÃÜÂë
+		      <property name="password" value=""/>
+		    </driver-properties>
+		        ÉèÖÃ×î´óÁ¬½Ó³ØÊý
+		    <maximum-connection-count>10</maximum-connection-count>
+		        ×ÔÐÐ²âÊÔÓï¾ä
+		    <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+		  </proxool>
+		</something-else-entirely>
+		
+	3.ÏîÄ¿ÖÐÅäÖÃ£¨web.xml£©
+		<servlet>
+			<servlet-name>ServletConfigurator</servlet-name>
+			<servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+			<init-param>
+				<param-name>xmlFile</param-name>
+				<param-value>WEB-INF/proxool.xml</param-value>
+			</init-param>
+			<!-- µ±webÈÝÆ÷Æô¶¯µÄÊ±ºòÊµÀý»¯µ±Ç°µÄServlet -->
+			<load-on-startup>1</load-on-startup>
+		</servlet>
+	
+	4.¸üÐÂ DbUtil.java ¹¤¾ßÀà
+		×¢£ºÈ¥³ýÁ´½Ó·ÃÎÊµÄ²ÎÊý£¬²¢ÇÒ Connection ¶ÔÏóÐè´ÓÁ¬½Ó³ØÅäÖÃÖÐ»ñÈ¡²ÎÊý

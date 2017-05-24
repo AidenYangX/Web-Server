@@ -1,0 +1,52 @@
+添加业务（以学生对象为例）：李文清，李钊钊，郭欣
+	1.M(model 模型层)
+		Student.java 
+		作用：方便存储数据
+		开发要求：
+			1.需要有私有的属性，注：属性值和数据库中 student_info 表字段保持一致
+			2.需要创建 Getter()&Setter()
+			3.需要创建全参的构造器和无参的构造器
+			4.toString() 方法的实现
+		开发具体步骤： 参见 【com.cxsw.web.po.Student.java】
+	
+	2.M(Service 业务层)
+		StudentService.java 
+		作用：当前 Student 对象对于数据的操作 CRUD(增查改删)
+		开发要求：
+			1.需要声明全局的变量，方便在目标方法中赋值和使用
+			2.在【com.cxsw.web.service.StudentsServiceImpl.java】中实现 
+		【com.cxsw.web.service.StudentsService.java】接口中的方法
+			3.实现目标方法中的 CRUD(增查改删)业务
+			4.返回数据库结果
+			
+		开发具体步骤： 参见 【com.cxsw.web.service.StudentService.java】
+		
+	3.V(View 视图层)
+		addStudent.jsp
+		作用：用户输入
+		开发要求：
+			1.form 表单需用 post 请求
+			2.input/select/textarea... 等表单控件中的 name 属性和模型对象 Student 属性名保持一致
+			3.使用 submit 提交表单
+			4.action 指定接受用户输入的 URL 地址("/AddStudentServlet")，注：需要获取项目的根路径
+			
+		开发具体步骤：参见 【/WebContent/mvc/addStudent.jsp】
+		
+	4.C(Controller 控制层)
+		AddStudentServlet.java
+		作用：获取用户的输入值给予响应
+		开发要求：
+			1.需要注意变量的声明方法
+			2.需要存储数据
+			3.合理的声明对象
+			
+		开发具体步骤：
+			1.设置编码；
+			2.获取用户的输入值，注：多值参数需要使用 request.getParamterValue();获取，该方法返回一个字符串数组，
+		需要遍历，最终需要用字符串拼接的技术；
+			3.将获取到的数据封装到 Student 模型对象中;
+			4.调用 StudentsService 接口中的 save()方法，实现添加操作；
+			5.根据添加操作的返回结果给予不同的响应页面；
+		
+		详细步骤：参见 【com.cxsw.web.servlets.AddStudentServle.java】
+		

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NOTE>
+<!-- the proxool configuration can be embedded within your own application's.
+Anything outside the "proxool" tag is ignored. -->
+<something-else-entirely>
+  <proxool>
+    <!-- 链接池的别名 -->
+    <alias>xml-student</alias>
+    <driver-url>jdbc:mysql:///zy5q</driver-url>
+    <driver-class>com.mysql.jdbc.Driver</driver-class>
+    <driver-properties>
+      <property name="user" value="root"/>
+      <property name="password" value="root"/>
+    </driver-properties>
+    <maximum-connection-count>10</maximum-connection-count>
+    <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool>
+</something-else-entirely>
